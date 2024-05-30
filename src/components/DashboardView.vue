@@ -1,178 +1,333 @@
 <template>
   <div>
     <div class="row dashboard">
-      <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <q-card class="my-card" bordered>
-          <q-card-section horizontal>
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar
-                  rounded
-                  style="background-color: #057407"
-                  text-color="white"
-                  icon="groups"
-                >
-                </q-avatar>
-              </q-item-section>
-              <q-item-section>
-                <q-item-label><b>Sample Count 1</b></q-item-label>
-                <p>
-                  <b style="font-size: 20px; color: #057407">1,500</b>
+      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+        <div class="col-12">
+          <q-card class="rounded-card q-mx-md q-pa-sm">
+            <div class="row">
+              <div class="col-6">
+                <q-card-section horizontal class="justify-start">
+                  <q-item>
+                    <!--   <q-item-section avatar> -->
+                    <q-avatar
+                      rounded
+                      class="stylefordashboardicon"
+                      text-color="white"
+                      icon="how_to_reg"
+                    >
+                    </q-avatar>
+                    <!--   </q-item-section> -->
+                  </q-item>
+                </q-card-section>
+              </div>
+
+              <div class="col-6">
+                <q-card-section horizontal class="justify-end">
+                  <q-item>
+                    <img
+                      src="../assets/imgs/graph.png"
+                      alt="Tagum City"
+                      style="height: 100%; width: 85%"
+                    />
+                  </q-item>
+                </q-card-section>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top: -25px">
+              <div class="col-12 q-pa-sm q-mt-lg">
+                <p>Total Beneficiaries</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 q-pa-sm">
+                <p style="font-size: 20px; margin-top: -30px">
+                  <b>1,45454</b>
                 </p>
-              </q-item-section>
-            </q-item>
-          </q-card-section>
+              </div>
+            </div>
+          </q-card>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+        <div class="col-12">
+          <q-card class="rounded-card q-mx-md q-pa-sm">
+            <div class="row">
+              <div class="col-6">
+                <q-card-section horizontal class="justify-start">
+                  <q-item>
+                    <!--   <q-item-section avatar> -->
+                    <q-avatar
+                      rounded
+                      class="stylefordashboardicon"
+                      text-color="white"
+                      icon="group"
+                    >
+                    </q-avatar>
+                    <!--   </q-item-section> -->
+                  </q-item>
+                </q-card-section>
+              </div>
+
+              <div class="col-6">
+                <q-card-section horizontal class="justify-end">
+                  <q-item>
+                    <img
+                      src="../assets/imgs/graph.png"
+                      alt="Tagum City"
+                      style="height: 100%; width: 85%"
+                    />
+                  </q-item>
+                </q-card-section>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top: -25px">
+              <div class="col-12 q-pa-sm q-mt-lg">
+                <p>Total Population</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 q-pa-sm">
+                <p style="font-size: 20px; margin-top: -30px">
+                  <b>1,45454</b>
+                </p>
+              </div>
+            </div>
+          </q-card>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+        <div class="col-12">
+          <q-card class="rounded-card q-mx-md q-pa-sm">
+            <div class="row">
+              <div class="col-6">
+                <q-card-section horizontal class="justify-start">
+                  <q-item>
+                    <!--   <q-item-section avatar> -->
+                    <q-avatar
+                      rounded
+                      class="stylefordashboardicon"
+                      text-color="white"
+                      icon="pending_actions"
+                    >
+                    </q-avatar>
+                    <!--   </q-item-section> -->
+                  </q-item>
+                </q-card-section>
+              </div>
+
+              <div class="col-6">
+                <q-card-section horizontal class="justify-end">
+                  <q-item>
+                    <img
+                      src="../assets/imgs/graph.png"
+                      alt="Tagum City"
+                      style="height: 100%; width: 85%"
+                    />
+                  </q-item>
+                </q-card-section>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top: -25px">
+              <div class="col-12 q-pa-sm q-mt-lg">
+                <p>Non Registered Voters</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 q-pa-sm">
+                <p style="font-size: 20px; margin-top: -30px">
+                  <b>1,45454</b>
+                </p>
+              </div>
+            </div>
+          </q-card>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+        <div class="col-12">
+          <q-card class="rounded-card q-mx-md q-pa-sm">
+            <div class="row">
+              <div class="col-6">
+                <q-card-section horizontal class="justify-start">
+                  <q-item>
+                    <!--   <q-item-section avatar> -->
+                    <q-avatar
+                      rounded
+                      class="stylefordashboardicon"
+                      text-color="white"
+                      icon="house"
+                    >
+                    </q-avatar>
+                    <!--   </q-item-section> -->
+                  </q-item>
+                </q-card-section>
+              </div>
+
+              <div class="col-6">
+                <q-card-section horizontal class="justify-end">
+                  <q-item>
+                    <img
+                      src="../assets/imgs/graph.png"
+                      alt="Tagum City"
+                      style="height: 100%; width: 85%"
+                    />
+                  </q-item>
+                </q-card-section>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top: -25px">
+              <div class="col-12 q-pa-sm q-mt-lg">
+                <p>Purok</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 q-pa-sm">
+                <p style="font-size: 20px; margin-top: -30px">
+                  <b>1,45454</b>
+                </p>
+              </div>
+            </div>
+          </q-card>
+        </div>
+      </div>
+    </div>
+    <div class="row dashboard2" style="margin-top: -40px">
+      <div class="col-3">
+        <q-card class="rounded-card q-mx-md q-pa-sm">
+          <ChartGender />
+        </q-card>
+      </div>
+      <div class="col-6">
+        <q-card class="rounded-card q-mx-md q-pa-sm">
+          <p style="font-size: 12px; color: #057407" class="text-center">
+            Population Status
+          </p>
+          <BarChart />
         </q-card>
       </div>
 
-      <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <q-card class="my-card" bordered>
-          <q-card-section horizontal>
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar
-                  rounded
-                  style="background-color: #057407"
-                  text-color="white"
-                  icon="precision_manufacturing"
-                >
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label><b>Sample Count 2</b></q-item-label>
-                <p>
-                  <b style="font-size: 20px; color: #057407">1,500</b>
+      <div class="col-3">
+        <q-card class="rounded-card q-mx-md q-pa-sm">
+          <div class="row q-mx-md">
+            <div class="col-6 q-mt-sm">
+              <div class="row">
+                <p style="font-size: 15px">Settled Cases</p>
+              </div>
+              <div class="row">
+                <p style="font-size: 15px; margin-top: -12px">
+                  <b>4,000</b>
                 </p>
-              </q-item-section>
-            </q-item>
-          </q-card-section>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <q-card-section horizontal class="justify-end">
+                <q-item>
+                  <!--   <q-item-section avatar> -->
+                  <q-avatar
+                    rounded
+                    class="stylefordashboardicon"
+                    text-color="white"
+                    icon="group"
+                  >
+                  </q-avatar>
+                  <!--   </q-item-section> -->
+                </q-item>
+              </q-card-section>
+            </div>
+          </div>
         </q-card>
-      </div>
 
-      <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <q-card class="my-card" bordered>
-          <q-card-section horizontal>
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar
-                  rounded
-                  style="background-color: #057407"
-                  text-color="white"
-                  icon="precision_manufacturing"
-                >
-                </q-avatar>
-              </q-item-section>
+        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
+          <div class="row q-mx-md">
+            <div class="col-6 q-mt-sm">
+              <div class="row">
+                <p style="font-size: 15px">Unschedule Cases</p>
+              </div>
+              <div class="row">
+                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
+              </div>
+            </div>
 
-              <q-item-section>
-                <q-item-label><b>Sample Count 3</b></q-item-label>
-                <p>
-                  <b style="font-size: 20px; color: #057407">1,500</b>
-                </p>
-              </q-item-section>
-            </q-item>
-          </q-card-section>
+            <div class="col-6">
+              <q-card-section horizontal class="justify-end">
+                <q-item>
+                  <!--   <q-item-section avatar> -->
+                  <q-avatar
+                    rounded
+                    class="stylefordashboardicon"
+                    text-color="white"
+                    icon="perm_contact_calendar"
+                  >
+                  </q-avatar>
+                  <!--   </q-item-section> -->
+                </q-item>
+              </q-card-section>
+            </div>
+          </div>
         </q-card>
-      </div>
 
-      <q-dialog v-model="dialogpersonal" persistent>
-        <q-card style="width: 50%; height: 50%">
-          <q-card-section>
-            <div class="text-h6">Personal Details</div>
-          </q-card-section>
-
-          <q-separator />
-
-          <q-card-section style="max-height: 50vh" class="scroll">
-            <q-form>
+        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
+          <div class="row q-mx-md">
+            <div class="col-6 q-mt-sm">
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input
-                    filled
-                    label="ID Number"
-                    dense
-                    class="q-pa-sm"
-                    type="number"
-                  />
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Lastname" dense class="q-pa-sm" />
-                </div>
+                <p style="font-size: 15px">Unschedule Cases</p>
               </div>
-
               <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Firstname" dense class="q-pa-sm" />
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Middlename" dense class="q-pa-sm" />
-                </div>
+                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
               </div>
+            </div>
 
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Designation" dense class="q-pa-sm" />
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Office" dense class="q-pa-sm" />
-                </div>
-              </div>
-              <q-separator class="q-mb-sm"></q-separator>
-              <div class="text-title">Login Credentials</div>
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Username" dense class="q-pa-sm" />
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <q-input filled label="Password" dense class="q-pa-sm" />
-                </div>
-              </div>
-            </q-form>
-          </q-card-section>
-          <q-card-actions align="right">
-            <q-btn
-              flat
-              label="Cancel"
-              color="primary"
-              v-close-popup
-              size="md"
-            />
-            <q-btn
-              label="Save"
-              color="secondary"
-              size="md"
-              v-close-popup
-              @click="save"
-            />
-          </q-card-actions>
+            <div class="col-6">
+              <q-card-section horizontal class="justify-end">
+                <q-item>
+                  <!--   <q-item-section avatar> -->
+                  <q-avatar
+                    rounded
+                    class="stylefordashboardicon"
+                    text-color="white"
+                    icon="perm_contact_calendar"
+                  >
+                  </q-avatar>
+                  <!--   </q-item-section> -->
+                </q-item>
+              </q-card-section>
+            </div>
+          </div>
         </q-card>
-      </q-dialog>
+        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
+          <div class="row q-mx-md">
+            <div class="col-6 q-mt-sm">
+              <div class="row">
+                <p style="font-size: 15px">Schedule Cases</p>
+              </div>
+              <div class="row">
+                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
+              </div>
+            </div>
 
-      <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-        <q-card class="my-card" bordered>
-          <q-card-section horizontal>
-            <q-item>
-              <q-item-section avatar>
-                <q-avatar
-                  rounded
-                  style="background-color: #057407"
-                  text-color="white"
-                  icon="precision_manufacturing"
-                >
-                </q-avatar>
-              </q-item-section>
-
-              <q-item-section>
-                <q-item-label><b>Sample Count 4</b></q-item-label>
-                <p>
-                  <b style="font-size: 20px; color: #057407">1,500</b>
-                </p>
-              </q-item-section>
-            </q-item>
-          </q-card-section>
+            <div class="col-6">
+              <q-card-section horizontal class="justify-end">
+                <q-item>
+                  <!--   <q-item-section avatar> -->
+                  <q-avatar
+                    rounded
+                    class="stylefordashboardicon"
+                    text-color="white"
+                    icon="event_available"
+                  >
+                  </q-avatar>
+                  <!--   </q-item-section> -->
+                </q-item>
+              </q-card-section>
+            </div>
+          </div>
         </q-card>
       </div>
     </div>
@@ -183,6 +338,8 @@
 /* import HorizontalBarChart from "../components/HorizontalBarChart.vue"; */
 /* import PieChart from "../components/PieChart.vue"; */
 import { defineComponent } from "vue";
+import ChartGender from "components/ChartGender.vue";
+import BarChart from "components/BarChart.vue";
 import { ref, computed, nextTick } from "vue";
 export default defineComponent({
   name: "App",
@@ -190,6 +347,8 @@ export default defineComponent({
   components: {
     /*   HorizontalBarChart, */
     /*   PieChart, */
+    ChartGender,
+    BarChart,
   },
   data() {
     return {
@@ -326,11 +485,31 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.stylefordashboardicon {
+  background: linear-gradient(
+    40deg,
+    #279f27,
+    #5fc331
+  ); /* Gradient from green to white */
+}
+
+.rounded-card {
+  border-radius: 20px; /* Adjust the radius as per your preference */
+}
+
 .dashboard {
   padding: 2%;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
+}
+
+.dashboard2 {
+  padding: 2%;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50x;
 }
 
 .my-card {

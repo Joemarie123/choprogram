@@ -20,20 +20,20 @@
           <img
             width="50"
             height="50"
-            src="https://img.icons8.com/stickers/100/engineering.png"
+            src="../assets/imgs/logo.png"
             alt="engineering"
           />
           <span class="q-ml-xs" style="font-size: 15px"
-            >CITY HEALTH CERTIFICATE SYSTEM</span
+            >TAGUM CITY BENEFICIARY</span
           >
         </q-toolbar-title>
 
         <q-space />
 
         <div class="q-gutter-sm row items-center no-wrap">
-          <q-btn round flat>
-            <q-avatar size="26px">
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+          <q-btn round flat @click="routetologin()">
+            <q-avatar size="40px">
+              <img src="../assets/imgs/logout.png" />
             </q-avatar>
             <q-tooltip>Account</q-tooltip>
           </q-btn>
@@ -50,6 +50,10 @@
     >
       <q-scroll-area class="fit">
         <q-list padding class="text-grey-8">
+          <q-item-section class="responsive-text q-mx-xl q-my-lg">
+            <q-item-label> <b>DASHBOARD VIEW</b> </q-item-label>
+          </q-item-section>
+
           <q-item
             clickable
             v-ripple
@@ -59,9 +63,9 @@
             <q-item-section avatar>
               <q-avatar
                 rounded
-                :style="{
-                  'background-color':
-                    selectedSection === 'dashboard' ? '#057407' : '#5f6368',
+                :class="{
+                  blendingcolor: selectedSection === 'dashboard',
+                  'default-color': selectedSection !== 'dashboard',
                 }"
                 text-color="white"
                 icon="dashboard"
@@ -70,84 +74,42 @@
             </q-item-section>
 
             <q-item-section class="responsive-text">
-              <q-item-label> <b>Home</b> </q-item-label>
+              <q-item-label> <b>DashBoard</b> </q-item-label>
             </q-item-section>
           </q-item>
 
-          <q-expansion-item group="somegroup" v-model="management">
+          <q-item
+            clickable
+            v-ripple
+            @click="handleItemClick_Beneficiary"
+            :class="{ 'active-item': selectedSection === 'beneficiary' }"
+          >
+            <q-item-section avatar>
+              <q-avatar
+                rounded
+                :class="{
+                  blendingcolor: selectedSection === 'beneficiary',
+                  'default-color': selectedSection !== 'beneficiary',
+                }"
+                text-color="white"
+                icon="dashboard"
+              >
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section class="responsive-text">
+              <q-item-label> <b>Beneficiary</b> </q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <!--     <q-expansion-item group="somegroup" v-model="settings">
             <template v-slot:header>
               <q-item-section avatar>
                 <q-avatar
                   rounded
-                  text-color="white"
-                  icon="list"
-                  size="40px"
-                  :style="{
-                    'background-color':
-                      management === true ? '#057407' : '#5f6368',
-                  }"
-                ></q-avatar>
-              </q-item-section>
-              <q-item-section class="responsive-text">
-                <q-item-label> <b>CHO Settings</b> </q-item-label>
-              </q-item-section>
-            </template>
-
-            <q-item
-              clickable
-              v-ripple
-              @click="toggleSection('health_card')"
-              :class="{ 'active-item': selectedSection === 'health_card' }"
-            >
-              <q-item-section class="q-ml-sm">
-                <q-item-label>
-                  <q-icon
-                    :style="{
-                      color:
-                        selectedSection === 'health_card'
-                          ? '#006400'
-                          : 'inherit',
-                    }"
-                    name="groups"
-                    class="q-ml-md q-mr-md"
-                  />
-                  Health Card</q-item-label
-                >
-              </q-item-section>
-            </q-item>
-
-            <q-item
-              clickable
-              v-ripple
-              @click="toggleSection('ToDoos_Two')"
-              :class="{ 'active-item': selectedSection === 'ToDoos_Two' }"
-            >
-              <q-item-section class="q-ml-sm">
-                <q-item-label>
-                  <q-icon
-                    :style="{
-                      color:
-                        selectedSection === 'ToDoos_Two'
-                          ? '#006400'
-                          : 'inherit',
-                    }"
-                    name="groups"
-                    class="q-ml-md q-mr-md"
-                  />
-                  To Do's 2</q-item-label
-                >
-              </q-item-section>
-            </q-item>
-          </q-expansion-item>
-
-          <q-expansion-item group="somegroup" v-model="settings">
-            <template v-slot:header>
-              <q-item-section avatar>
-                <q-avatar
-                  rounded
-                  :style="{
-                    'background-color':
-                      settings === true ? '#057407' : '#5f6368',
+                  :class="{
+                    blendingcolor: settings,
+                    'default-color': !settings,
                   }"
                   text-color="white"
                   icon="settings"
@@ -177,7 +139,7 @@
                 >
               </q-item-section>
             </q-item>
-          </q-expansion-item>
+          </q-expansion-item> -->
         </q-list>
       </q-scroll-area>
     </q-drawer>
@@ -187,8 +149,8 @@
     <q-page-container v-if="DashboardView">
       <DashboardView />
     </q-page-container>
-    <q-page-container v-if="showHealthCard">
-      <Health_card />
+    <q-page-container v-if="showbeneficiary">
+      <Beneficiary />
     </q-page-container>
     <q-page-container v-if="showTodosTwo">
       <ToDoos_Two />
@@ -199,7 +161,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 // import EssentialLink from "components/EssentialLink.vue";
-import Health_card from "components/Health_card.vue";
+import Beneficiary from "components/Beneficiary.vue";
 import ToDoos_Two from "components/ToDoos_Two.vue";
 import DashboardView from "src/components/DashboardView.vue";
 
@@ -224,7 +186,7 @@ export default defineComponent({
 
   components: {
     // EssentialLink,
-    Health_card,
+    Beneficiary,
     ToDoos_Two,
     DashboardView,
   },
@@ -244,17 +206,26 @@ export default defineComponent({
     return {
       selectedSection: "dashboard",
       DashboardView: true,
-      showHealthCard: false,
+      showbeneficiary: false,
       showTodosTwo: false,
       management: false,
       settings: false,
     };
   },
   methods: {
+    routetologin() {
+      this.$router.push("/");
+    },
+
     handleItemClick() {
       // Call both functions here
       this.toggleSection("dashboard");
     },
+
+    handleItemClick_Beneficiary() {
+      this.toggleSection("beneficiary");
+    },
+
     toggleSubMenu() {
       this.submenuOpen = !this.submenuOpen;
     },
@@ -263,9 +234,10 @@ export default defineComponent({
       this.submenuOpen = false;
     },
     toggleSection(section) {
-      this.showHealthCard = section === "health_card";
+      this.showbeneficiary = section === "beneficiary";
       this.showTodosTwo = section === "ToDoos_Two";
       this.DashboardView = section === "dashboard";
+
       if (section === "dashboard") {
         this.management = false; // Close management expansion item
         this.settings = false; // Close settings expansion item
@@ -283,6 +255,14 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+.blendingcolor {
+  background: linear-gradient(40deg, #279f27, #5fc331);
+}
+
+.default-color {
+  background-color: #5f6368;
+}
+
 .GNL__toolbar {
   height: 64px;
 }
