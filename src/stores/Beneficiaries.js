@@ -5,12 +5,34 @@ export const useBeneficiaries = defineStore("BeneficiariesStore", {
   state: () => ({
     ListBeneficiaries: [],
     ListBeneficiaries_Barangay: [],
-    TypeBeneficiaries: [],
+    Memberinfo: [],
   }),
   getters: {
     // doubleCount: (state) => state.counter * 2,
   },
   actions: {
+    async Release_Beneficiary(payload) {
+      // `http://10.0.1.26:82/HRPORTAL/login.php`
+      let res = await axios.post(
+        `
+      http://10.0.1.26:82/beneficiary/release.php`,
+        payload
+      );
+      //  this.Memberinfo = res.data.info;
+      console.log("Release Beneficiary", res.data);
+    },
+
+    async ViewDetails_MemberInfo(payload) {
+      // `http://10.0.1.26:82/HRPORTAL/login.php`
+      let res = await axios.post(
+        `
+      http://10.0.1.26:82/beneficiary/memberinfo.php`,
+        payload
+      );
+      this.Memberinfo = res.data.info;
+      console.log("ViewDetails MemberInfo", res.data.info);
+    },
+
     async Beneficiaries_Save_EDIT_DELETE(payload) {
       // `http://10.0.1.26:82/HRPORTAL/login.php`
       let res = await axios.post(
@@ -18,14 +40,6 @@ export const useBeneficiaries = defineStore("BeneficiariesStore", {
         payload
       );
       console.log("ADD BENEFICIRIES =", res.data);
-    },
-
-    async TypeBeneficiariesList() {
-      // `http://10.0.1.26:82/HRPORTAL/login.php`
-      let res = await axios.get(`
-      http://10.0.1.26:82/beneficiary/beneficiarytypeget.php`);
-      this.TypeBeneficiaries = res.data.beneficiaries;
-      console.log("TYpe of Beneficiaries", res.data.beneficiaries);
     },
 
     async Beneficiaries_List() {

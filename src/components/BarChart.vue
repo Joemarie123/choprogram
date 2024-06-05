@@ -1,102 +1,128 @@
+v
 <template>
-  <div id="chart">
-    <apexcharts
+  <div>
+    <apexchart
+      type="bar"
       height="320"
       :options="chartOptions"
-      :series="series"
-      class="kinidaw"
-    ></apexcharts>
+      :series="chartSeries"
+    />
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-
+import { defineComponent } from "vue";
 import VueApexCharts from "vue3-apexcharts";
+import { useDashboard } from "../stores/Dashboard";
 
-export default {
-  name: "Chart",
+export default defineComponent({
   components: {
-    apexcharts: VueApexCharts,
+    apexchart: VueApexCharts,
   },
-
-  data: function () {
+  data() {
     return {
+      members: [],
+      chartSeries: [
+        {
+          name: "Members",
+          data: [],
+        },
+      ],
       chartOptions: {
         chart: {
-          id: "basic-bar",
           type: "bar",
-          height: 350,
-          foreColor: "#07a86d",
-          title: {
-            text: "Population Status",
-            align: "center",
-            style: {
-              fontSize: "20px",
-              fontFamily: "Arial, sans-serif",
-              color: "#07a86d",
-            },
-          },
+          height: 380,
         },
-
-        dataLabels: {
-          enabled: false,
-        },
-        colors: ["#8DECB4", "#41B06E", "#036C24", "#4FE07E"],
         plotOptions: {
-          dataLabels: {
-            enabled: false,
-          },
-
           bar: {
-            horizontal: false,
-            dataLabels: {},
-            stroke: {
-              width: 1,
-              colors: ["#07a86d"],
-            },
-            legend: {
+            distributed: false,
+            columnWidth: "15%",
+            dataLabels: {
               position: "top",
-              horizontalAlign: "left",
-              offsetX: 40,
+              enabled: true,
+              formatter: (val, opts) => {
+                const type =
+                  this.chartOptions.xaxis.categories[opts.dataPointIndex];
+                return `${val} (${type})`; // Include the member count and type
+              },
+              style: {
+                colors: ["#057407"], // Set color directly in style
+              },
             },
           },
-
-          showTotal: false,
         },
-
+        fill: {
+          type: "gradient",
+          gradient: {
+            type: "diagonal1",
+            gradientToColors: ["#5fc331"],
+            stops: [0, 100],
+          },
+        },
+        colors: ["#279f27"],
+        title: {
+          text: "Member Count",
+        },
         xaxis: {
-          categories: [2009, 2012, 2015, 2018, 2020, 2023],
-        },
-
-        grid: {
-          xaxis: {
-            lines: {
-              show: false,
+          categories: [], // This will be filled dynamically
+          labels: {
+            style: {
+              colors: [], // Optional: set specific colors for labels
+              fontSize: "12px",
             },
           },
         },
       },
-
-      series: [
-        {
-          name: "Elementary",
-          data: [44, 55, 41, 37, 35, 38],
-        },
-        {
-          name: "College",
-          data: [53, 32, 33, 52, 45, 39],
-        },
-        {
-          name: "High School",
-          data: [12, 17, 11, 19, 18, 45],
-        },
-        {
-          name: "Senior High",
-          data: [19, 17, 15, 18, 16, 19],
-        },
-      ],
     };
   },
-};
+  created() {
+    const store2 = useDashboard();
+    store2.DashBoard_List().then((res) => {
+      this.members = store2.Total_Member_with_Beneficiaries;
+      console.log("DashBoard Member", this.members);
+      this.updateChartData();
+    });
+  },
+  methods: {
+    updateChartData() {
+      // Extract member counts and types from the array
+      const memberCounts = this.members.map((member) => member.members);
+      const memberTypes = this.members.map((member) => member.type);
+      // let memberTypes=[];
+      //  this.members.forEach((member)=>{
+      //   memberTypes.push([member.type])
+      // })
+
+      console.log("Member Counts:", memberCounts);
+      console.log("Member Types:", Object.values(memberTypes));
+
+      // Update chart series and categories
+      this.chartSeries[0].data = memberCounts;
+      // this.chartOptions.xaxis.categories = Object.values(memberTypes);
+      this.members.forEach((member) => {
+        this.chartOptions.xaxis.categories.push(member.type);
+      });
+
+      console.log("memberType Category:", memberTypes);
+
+      console.log(
+        "Categories after update:",
+        JSON.stringify(this.chartOptions.xaxis.categories, (key, value) => {
+          if (typeof value == "string") {
+            return value;
+          }
+          return value;
+        })
+      );
+    },
+  },
+});
 </script>
+
+<style scoped>
+.chart-label {
+  color: black; /* Set color to black */
+}
+
+/* Add other CSS styles as needed */
+</style>

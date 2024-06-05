@@ -12,6 +12,7 @@ const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function (/* ctx */) {
   return {
+
     eslint: {
       // fix: true,
       // include: [],
@@ -60,7 +61,7 @@ module.exports = configure(function (/* ctx */) {
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
 
-      // publicPath: '/',
+      publicPath: '/BPFS/',
       // analyze: true,
       // env: {},
       // rawDefine: {}

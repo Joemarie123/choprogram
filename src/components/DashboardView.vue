@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="row dashboard">
-      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+      <div class="col-12 col-lg-2 col-md-3 col-sm-6 q-mx-md">
         <div class="col-12">
-          <q-card class="rounded-card q-mx-md q-pa-sm">
+          <q-card class="rounded-card q-pa-sm">
             <div class="row">
               <div class="col-6">
                 <q-card-section horizontal class="justify-start">
@@ -42,7 +42,7 @@
             <div class="row">
               <div class="col-12 q-pa-sm">
                 <p style="font-size: 20px; margin-top: -30px">
-                  <b>1,45454</b>
+                  <b>{{ TotalBeneficiaries }}</b>
                 </p>
               </div>
             </div>
@@ -50,9 +50,9 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+      <div class="col-12 col-lg-2 col-md-3 col-sm-6 q-mx-md">
         <div class="col-12">
-          <q-card class="rounded-card q-mx-md q-pa-sm">
+          <q-card class="rounded-card q-pa-sm">
             <div class="row">
               <div class="col-6">
                 <q-card-section horizontal class="justify-start">
@@ -85,13 +85,13 @@
 
             <div class="row" style="margin-top: -25px">
               <div class="col-12 q-pa-sm q-mt-lg">
-                <p>Total Population</p>
+                <p>Total Released</p>
               </div>
             </div>
             <div class="row">
               <div class="col-12 q-pa-sm">
                 <p style="font-size: 20px; margin-top: -30px">
-                  <b>1,45454</b>
+                  <b>{{ TotalReleased }}</b>
                 </p>
               </div>
             </div>
@@ -99,9 +99,9 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
+      <div class="col-12 col-lg-2 col-md-3 col-sm-6 q-mx-md">
         <div class="col-12">
-          <q-card class="rounded-card q-mx-md q-pa-sm">
+          <q-card class="rounded-card q-pa-sm">
             <div class="row">
               <div class="col-6">
                 <q-card-section horizontal class="justify-start">
@@ -134,13 +134,13 @@
 
             <div class="row" style="margin-top: -25px">
               <div class="col-12 q-pa-sm q-mt-lg">
-                <p>Non Registered Voters</p>
+                <p>Total Unreleased</p>
               </div>
             </div>
             <div class="row">
               <div class="col-12 q-pa-sm">
                 <p style="font-size: 20px; margin-top: -30px">
-                  <b>1,45454</b>
+                  <b>{{ TotalUnreleased }}</b>
                 </p>
               </div>
             </div>
@@ -148,186 +148,19 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-3 col-md-3 col-sm-6">
-        <div class="col-12">
-          <q-card class="rounded-card q-mx-md q-pa-sm">
-            <div class="row">
-              <div class="col-6">
-                <q-card-section horizontal class="justify-start">
-                  <q-item>
-                    <!--   <q-item-section avatar> -->
-                    <q-avatar
-                      rounded
-                      class="stylefordashboardicon"
-                      text-color="white"
-                      icon="house"
-                    >
-                    </q-avatar>
-                    <!--   </q-item-section> -->
-                  </q-item>
-                </q-card-section>
-              </div>
-
-              <div class="col-6">
-                <q-card-section horizontal class="justify-end">
-                  <q-item>
-                    <img
-                      src="../assets/imgs/graph.png"
-                      alt="Tagum City"
-                      style="height: 100%; width: 85%"
-                    />
-                  </q-item>
-                </q-card-section>
-              </div>
-            </div>
-
-            <div class="row" style="margin-top: -25px">
-              <div class="col-12 q-pa-sm q-mt-lg">
-                <p>Purok</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 q-pa-sm">
-                <p style="font-size: 20px; margin-top: -30px">
-                  <b>1,45454</b>
-                </p>
-              </div>
-            </div>
-          </q-card>
-        </div>
-      </div>
     </div>
     <div class="row dashboard2" style="margin-top: -40px">
-      <div class="col-3">
+      <!--  <div class="col-3">
         <q-card class="rounded-card q-mx-md q-pa-sm">
           <ChartGender />
         </q-card>
-      </div>
-      <div class="col-6">
+      </div> -->
+      <div class="col-7">
         <q-card class="rounded-card q-mx-md q-pa-sm">
           <p style="font-size: 12px; color: #057407" class="text-center">
             Population Status
           </p>
           <BarChart />
-        </q-card>
-      </div>
-
-      <div class="col-3">
-        <q-card class="rounded-card q-mx-md q-pa-sm">
-          <div class="row q-mx-md">
-            <div class="col-6 q-mt-sm">
-              <div class="row">
-                <p style="font-size: 15px">Settled Cases</p>
-              </div>
-              <div class="row">
-                <p style="font-size: 15px; margin-top: -12px">
-                  <b>4,000</b>
-                </p>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <q-card-section horizontal class="justify-end">
-                <q-item>
-                  <!--   <q-item-section avatar> -->
-                  <q-avatar
-                    rounded
-                    class="stylefordashboardicon"
-                    text-color="white"
-                    icon="group"
-                  >
-                  </q-avatar>
-                  <!--   </q-item-section> -->
-                </q-item>
-              </q-card-section>
-            </div>
-          </div>
-        </q-card>
-
-        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
-          <div class="row q-mx-md">
-            <div class="col-6 q-mt-sm">
-              <div class="row">
-                <p style="font-size: 15px">Unschedule Cases</p>
-              </div>
-              <div class="row">
-                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <q-card-section horizontal class="justify-end">
-                <q-item>
-                  <!--   <q-item-section avatar> -->
-                  <q-avatar
-                    rounded
-                    class="stylefordashboardicon"
-                    text-color="white"
-                    icon="perm_contact_calendar"
-                  >
-                  </q-avatar>
-                  <!--   </q-item-section> -->
-                </q-item>
-              </q-card-section>
-            </div>
-          </div>
-        </q-card>
-
-        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
-          <div class="row q-mx-md">
-            <div class="col-6 q-mt-sm">
-              <div class="row">
-                <p style="font-size: 15px">Unschedule Cases</p>
-              </div>
-              <div class="row">
-                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <q-card-section horizontal class="justify-end">
-                <q-item>
-                  <!--   <q-item-section avatar> -->
-                  <q-avatar
-                    rounded
-                    class="stylefordashboardicon"
-                    text-color="white"
-                    icon="perm_contact_calendar"
-                  >
-                  </q-avatar>
-                  <!--   </q-item-section> -->
-                </q-item>
-              </q-card-section>
-            </div>
-          </div>
-        </q-card>
-        <q-card class="rounded-card q-mx-md q-pa-sm q-mt-sm">
-          <div class="row q-mx-md">
-            <div class="col-6 q-mt-sm">
-              <div class="row">
-                <p style="font-size: 15px">Schedule Cases</p>
-              </div>
-              <div class="row">
-                <p style="font-size: 15px; margin-top: -12px"><b>4,000</b></p>
-              </div>
-            </div>
-
-            <div class="col-6">
-              <q-card-section horizontal class="justify-end">
-                <q-item>
-                  <!--   <q-item-section avatar> -->
-                  <q-avatar
-                    rounded
-                    class="stylefordashboardicon"
-                    text-color="white"
-                    icon="event_available"
-                  >
-                  </q-avatar>
-                  <!--   </q-item-section> -->
-                </q-item>
-              </q-card-section>
-            </div>
-          </div>
         </q-card>
       </div>
     </div>
@@ -338,7 +171,8 @@
 /* import HorizontalBarChart from "../components/HorizontalBarChart.vue"; */
 /* import PieChart from "../components/PieChart.vue"; */
 import { defineComponent } from "vue";
-import ChartGender from "components/ChartGender.vue";
+/* import ChartGender from "components/ChartGender.vue"; */
+import { useDashboard } from "src/stores/Dashboard";
 import BarChart from "components/BarChart.vue";
 import { ref, computed, nextTick } from "vue";
 export default defineComponent({
@@ -347,13 +181,17 @@ export default defineComponent({
   components: {
     /*   HorizontalBarChart, */
     /*   PieChart, */
-    ChartGender,
+    /*     ChartGender, */
     BarChart,
   },
   data() {
     return {
       dialogpersonal: false,
       filter: "",
+      TotalBeneficiaries: [],
+      TotalReleased: [],
+      TotalUnreleased: [],
+
       columns: [
         {
           name: "fullname",
@@ -459,7 +297,17 @@ export default defineComponent({
 
   computed: {},
 
-  created() {},
+  created() {
+    const store = useDashboard();
+    store.DashBoard_List().then((res) => {
+      this.TotalBeneficiaries = store.Count_Total_Beneficiaries[0].total;
+      this.TotalUnreleased = store.Count_Total_Unreleased[0].unreleased;
+      this.TotalReleased = store.Count_Total_Released[0].released;
+      console.log("Total Beneficiaries ", this.TotalBeneficiaries);
+      console.log("Total Unreleased=", this.TotalReleased);
+      console.log("Total Released=", this.TotalUnreleased);
+    });
+  },
 
   methods: {
     ChartDatas() {
@@ -499,7 +347,6 @@ export default defineComponent({
 
 .dashboard {
   padding: 2%;
-  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 }

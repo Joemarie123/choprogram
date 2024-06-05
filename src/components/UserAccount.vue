@@ -4,7 +4,7 @@
       <q-card class="my-card" bordered>
         <q-banner rounded class="q-my-sm">
           <div class="row justify-start">
-            <!--   <div class="col-12 col-xl-1 col-lg-2 col-md-2 col-sm-2">
+            <div class="col-12 col-xl-1 col-lg-2 col-md-2 col-sm-2">
               <q-btn
                 unelevated
                 size="md"
@@ -15,163 +15,14 @@
               >
                 <a style="color: white">CREATE</a>
               </q-btn>
-            </div> -->
+            </div>
             <div class="col-12 col-xl-2 col-lg-3 col-md-4 col-sm-3 q-mt-sm">
               <b
                 ><p style="font-size: 20px; color: black">
-                  LIST OF BENEFICIARIES
+                  USER ACCOUNT LIST
                 </p></b
               >
             </div>
-
-            <q-dialog v-model="dialogforaddvselect" persistent>
-              <q-card style="width: 400px">
-                <q-banner rounded class="q-my-sm">
-                  <div class="row justify-start">
-                    <div class="col-3 col-xl-3 col-lg-4 col-md-3 col-sm-3">
-                      <q-btn
-                        unelevated
-                        size="md"
-                        icon="add"
-                        class="blendingcolor"
-                        style="background-color: white"
-                        @click="dialogforaddvselect = true"
-                      >
-                        <a style="color: white">ADD</a>
-                      </q-btn>
-                    </div>
-                    <div
-                      style="margin-left: 0px"
-                      class="col-8 col-xl-8 col-lg-7 col-md-8 col-sm-8 q-mt-sm"
-                    >
-                      <b
-                        ><p style="font-size: 15px; color: black">
-                          SELECT BENEFICIARIES
-                        </p></b
-                      >
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-1 col-1">
-                      <q-card-section
-                        horizontal
-                        class="justify-end q-mt-sm q-ml-lg"
-                        style="margin-left: 30px; margin-top: -1px"
-                      >
-                        <q-btn
-                          label="x"
-                          @click="dialogforaddvselect = false"
-                          class="q-mr-lg colorborder"
-                        />
-                      </q-card-section>
-                    </div>
-                  </div>
-                </q-banner>
-                <q-select
-                  v-model="txtselectedtype"
-                  filled
-                  dense
-                  :options="Type_Beneficiaries_Options"
-                  label="Selecdt Type"
-                  class="q-mx-md q-my-md"
-                >
-                </q-select>
-              </q-card>
-            </q-dialog>
-
-            <q-dialog
-              v-model="Dialog_View_Details"
-              persistent
-              max-width="500px"
-            >
-              <q-card class="rounded-card q-mx-sm">
-                <q-banner rounded class="q-my-sm">
-                  <div class="row justify-start">
-                    <!-- <div
-                      class="col-12 col-xl-1 col-lg-4 col-xl-4 col-md-4 col-sm-4"
-                    >
-                      <q-btn
-                        unelevated
-                        size="md"
-                        icon="add"
-                        class="blendingcolor"
-                        style="background-color: white"
-                        @click="dialogforaddvselect = true"
-                      >
-                        <a style="color: white">CREATE</a>
-                      </q-btn>
-                    </div> -->
-                    <div
-                      style="margin-left: 0px"
-                      class="col-11 col-xl-11 col-lg-11 col-md-11 col-sm-10 q-mt-sm"
-                    >
-                      <b
-                        ><p style="font-size: 15px; color: black">
-                          TYPE OF BENEFICIARIES
-                        </p></b
-                      >
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-sm-2 col-1">
-                      <q-card-section
-                        horizontal
-                        class="justify-end q-mt-sm q-ml-lg"
-                        style="margin-left: 30px; margin-top: -1px"
-                      >
-                        <q-btn
-                          label="x"
-                          @click="Dialog_View_Details = false"
-                          class="q-mr-lg colorborder"
-                        />
-                      </q-card-section>
-                    </div>
-                  </div>
-                </q-banner>
-                <q-table
-                  class="my-sticky-dynamic"
-                  flat
-                  bordered
-                  wrap-cells=""
-                  dense
-                  :filter="search_beneficiaries"
-                  :rows="ListahanMemberInfo"
-                  :columns="columns_beneficiaries"
-                  row-key="index"
-                  virtual-scroll
-                  :virtual-scroll-item-size="48"
-                  :virtual-scroll-sticky-size-start="48"
-                  :rows-per-page-options="[15]"
-                  @virtual-scroll="onScroll"
-                >
-                  <template v-slot:body-cell-isreleased="{ row }">
-                    <q-td>
-                      <div class="actionsbtn">
-                        <q-btn
-                          v-if="!row.isreleased"
-                          icon="account_circle"
-                          label="Release"
-                          outline
-                          dense
-                          size="9px"
-                          color="blue"
-                          @click="Release_Beneficiaries(row)"
-                          class="q-mx-md q-px-sm"
-                          style="margin-left: -10px"
-                        />
-                        <q-chip
-                          v-else
-                          icon="check"
-                          class="q-mx-md q-px-sm"
-                          style="margin-left: -10px"
-                          color="green"
-                          size="9px"
-                          text-color="white"
-                        >
-                          RELEASED
-                        </q-chip>
-                      </div>
-                    </q-td>
-                  </template>
-                </q-table>
-              </q-card>
-            </q-dialog>
 
             <div class="col-12 col-xl-2 col-lg-3 col-sm-3 col-md-3">
               <!--    <template v-slot:top-right> -->
@@ -196,10 +47,10 @@
           <q-dialog v-model="CreationDialog" persistent>
             <q-card>
               <div class="row">
-                <div class="col-lg-6 col-md-11 col-sm-10 col-11">
+                <div class="col-lg-6 col-md-11 col-sm-10 col-10">
                   <q-card-section horizontal class="justify-start q-mt-sm">
                     <p style="font-size: 20px; margin-left: 25px">
-                      Personal Information
+                      ADD USER ACCOUNT
                     </p>
                   </q-card-section>
                 </div>
@@ -219,7 +70,7 @@
               <q-card-section class="scroll">
                 <q-form>
                   <div class="row" style="margin-top: -15px">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                       <q-input
                         v-model="txtfname"
                         filled
@@ -232,7 +83,7 @@
                         </template>
                       </q-input>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                       <q-input
                         filled
                         v-model="txtmname"
@@ -248,7 +99,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-12 col-md-6 col-sm-12">
                       <q-input
                         filled
                         v-model="txtlname"
@@ -262,7 +113,7 @@
                       </q-input>
                     </div>
 
-                    <div class="col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-12 col-md-6 col-sm-12">
                       <q-input
                         filled
                         label="Extension Name"
@@ -276,28 +127,11 @@
                       </q-input>
                     </div>
 
-                    <div class="col-lg-12 col-md-6 col-sm-12 col-12">
-                      <q-input
-                        class="q-pa-sm"
-                        label="Date of Birth"
-                        transition-show="jump-up"
-                        transition-hide="jump-up"
-                        filled
-                        dense
-                        type="date"
-                        v-model="txtbirthday"
-                      >
-                        <template v-slot:prepend>
-                          <q-icon name="event" />
-                        </template>
-                      </q-input>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                       <!--  <q-input filled label="Sex" dense class="q-pa-sm" /> -->
                       <q-select
                         class="q-pa-sm"
-                        label="Barangay"
+                        label="Type"
                         transition-show="jump-up"
                         transition-hide="jump-up"
                         filled
@@ -306,25 +140,27 @@
                         option-label="label"
                         emit-value
                         map-options
-                        :options="barangayOptions"
-                        v-model="selectedBarangay"
+                        :options="admintype"
+                        v-model="txttype"
                       >
                         <template v-slot:prepend>
-                          <q-icon name="location_city" />
+                          <q-icon name="admin_panel_settings" />
                         </template>
                       </q-select>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+
+                    <div class="col-lg-12 col-md-6 col-sm-12">
                       <q-input
-                        filled
-                        label="Municipality"
-                        v-model="txtmunicipality"
-                        dense
-                        readonly
                         class="q-pa-sm"
+                        label="User Name"
+                        transition-show="jump-up"
+                        transition-hide="jump-up"
+                        filled
+                        dense
+                        v-model="txtusername"
                       >
                         <template v-slot:prepend>
-                          <q-icon name="business" />
+                          <q-icon name="manage_accounts" />
                         </template>
                       </q-input>
                     </div>
@@ -335,7 +171,7 @@
                     <q-btn
                       unelevated
                       size="md"
-                      @click="saveBeneficiaries()"
+                      @click="saveUserAccount()"
                       class="full-width blendingcolor"
                       label="SAVE"
                       icon="save"
@@ -429,54 +265,38 @@
                       </q-input>
                     </div>
 
-                    <div class="col-lg-12 col-md-6 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <!--  <q-input filled label="Sex" dense class="q-pa-sm" /> -->
+                      <q-select
+                        class="q-pa-sm"
+                        label="Select Type"
+                        transition-show="jump-up"
+                        transition-hide="jump-up"
+                        filled
+                        dense
+                        :options="admintype"
+                        v-model="txttype_edit"
+                      >
+                        <template v-slot:prepend>
+                          <q-icon name="admin_panel_settings" />
+                        </template>
+                      </q-select>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                      <!--  <q-input filled label="Sex" dense class="q-pa-sm" /> -->
                       <q-input
                         class="q-pa-sm"
-                        label="Date of Birth"
+                        label="User Name"
                         transition-show="jump-up"
                         transition-hide="jump-up"
                         filled
                         dense
-                        type="date"
-                        v-model="txtbirthday_edit"
+                        v-model="txtusername_edit"
                       >
                         <template v-slot:prepend>
-                          <q-icon name="event" />
+                          <q-icon name="manage_accounts" />
                         </template>
                       </q-input>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                      <!--  <q-input filled label="Sex" dense class="q-pa-sm" /> -->
-                      <q-select
-                        class="q-pa-sm"
-                        label="Barangay"
-                        transition-show="jump-up"
-                        transition-hide="jump-up"
-                        filled
-                        dense
-                        v-model="txtbarangay_edit"
-                      >
-                        <template v-slot:prepend>
-                          <q-icon name="location_city" />
-                        </template>
-                      </q-select>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                      <!--  <q-input filled label="Sex" dense class="q-pa-sm" /> -->
-                      <q-select
-                        class="q-pa-sm"
-                        label="Municipality/City"
-                        transition-show="jump-up"
-                        transition-hide="jump-up"
-                        filled
-                        dense
-                        v-model="txtmunicipality_edit"
-                      >
-                        <template v-slot:prepend>
-                          <q-icon name="business" />
-                        </template>
-                      </q-select>
                     </div>
                   </div>
 
@@ -485,7 +305,7 @@
                     <q-btn
                       unelevated
                       size="md"
-                      @click="Update_Beneficiaries()"
+                      @click="Update_UserAccount()"
                       class="full-width blendingcolor"
                       label="Update"
                       icon="update"
@@ -526,9 +346,8 @@
                       <q-select
                         filled
                         label="Type of Beneficiaries"
-                        v-model="slectedtype"
+                        v-model="txtmname_edit"
                         dense
-                        :options="Type_Beneficiaries_Options"
                         class="q-pa-sm"
                       >
                         <template v-slot:prepend>
@@ -589,32 +408,33 @@
             class="my-sticky-dynamic"
             flat
             bordered
-            wrap-cells=""
             dense
             :filter="search_beneficiaries"
-            :rows="ListahanBeneficiaries"
+            :rows="listofUsers"
             :columns="columns"
+            :loading="loading"
             row-key="index"
             virtual-scroll
             :virtual-scroll-item-size="48"
             :virtual-scroll-sticky-size-start="48"
+            :pagination="pagination"
             :rows-per-page-options="[10]"
             @virtual-scroll="onScroll"
           >
             <template v-slot:body-cell-actions="{ row }">
               <div class="actionsbtn">
-                <q-btn
+                <!--  <q-btn
                   icon="person_add"
                   label="View Details"
                   outline
                   dense
                   size="11px"
                   color="green"
-                  @click="Click_ViewDetails(row)"
+                  @click="AddType(row)"
                   class="q-px-sm"
                 >
-                </q-btn>
-                <!--   <q-btn
+                </q-btn> -->
+                <q-btn
                   icon="edit"
                   label="EDIT"
                   outline
@@ -633,7 +453,7 @@
                   color="deep-orange"
                   @click="deleteItem(row)"
                 >
-                </q-btn> -->
+                </q-btn>
               </div>
             </template>
           </q-table>
@@ -649,8 +469,7 @@
 import { defineComponent } from "vue";
 
 import { useQuasar } from "quasar";
-import { useBeneficiaries } from "src/stores/Beneficiaries";
-import { useLibraries } from "src/stores/Libraries";
+import { useUserAccount } from "src/stores/UserAccount";
 import { ref, computed, nextTick } from "vue";
 export default defineComponent({
   name: "App",
@@ -665,51 +484,21 @@ export default defineComponent({
       dialogpersonal: false,
       edit_CreationDialog: false,
       CreationDialog: false,
-      dialogforaddvselect: false,
-      txtlname: "",
-      slectedtype: "",
-      txtselectedtype: "",
+
       txtfname: "",
-      search_beneficiaries: "",
       txtmname: "",
+      txtlname: "",
       txtextensioname: "",
-      selectedBarangay: null,
-      txtmunicipality: "",
-      Dialog_View_Details: false,
-      pagination: { rowsPerPage: 0 },
-      txtbirthday_edit: "",
-      txtmunicipality_edit: "",
-      txtbarangay_edit: "",
-      txtextensionname_edit: "",
+      txttype: "",
+      txtusername: "",
+      search_beneficiaries: "",
       txtfname_edit: "",
       txtmname_edit: "",
       txtlname_edit: "",
-      txtID_Edit: "",
-      txtID_Delete: "",
-
+      txtextensionname_edit: "",
+      txttype_edit: "",
+      txtusername_edit: "",
       model: ref(null),
-      options_sex: ["Male", "Female"],
-      columns_beneficiaries: [
-        {
-          name: "type",
-          required: true,
-          label: "Type",
-          align: "left",
-          field: (row) => row.type,
-          format: (val) => val,
-          style: "width: 230px",
-          sortable: true,
-        },
-        {
-          name: "isreleased",
-          required: true,
-          label: "Action",
-          align: "left",
-          field: (row) => row.isreleased,
-          format: (val) => `${val}`,
-          sortable: true,
-        },
-      ],
 
       columns: [
         {
@@ -750,25 +539,18 @@ export default defineComponent({
         },
 
         {
-          name: "Birthdate",
+          name: "type",
           align: "center",
-          label: "Date of Birth",
-          field: "Birthdate",
-          sortable: true,
-          align: "left",
-        },
-        {
-          name: "Barangay",
-          label: "Barangay",
-          field: "Barangay",
+          label: "Type",
+          field: "type",
           sortable: true,
           align: "left",
         },
 
         {
-          name: "City",
-          label: "Municipality/City",
-          field: "City",
+          name: "Username",
+          label: "Username",
+          field: "Username",
           sortable: true,
           align: "left",
         },
@@ -785,80 +567,20 @@ export default defineComponent({
       txtbirthday: "",
       DialogDelete: false,
 
-      txtlastname: "",
-      txtfirstname: "",
-      middlename: "",
-      suffix: "",
-      birthdate: "",
-      ListahanMemberInfo: [],
-
-      ListahanBeneficiaries: [],
+      listofUsers: [],
       ListahanBarangay: [],
       barangaylist: [],
       ListahanTypeofBeneficiaries: [],
-      barangaylista: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
+      admintype: ["Admin", "User"],
     };
   },
 
-  computed: {
-    barangayOptions() {
-      return this.ListahanBarangay.map((item) => ({
-        value: item.barangay,
-        label: item.barangay,
-      }));
-    },
-
-    Type_Beneficiaries_Options() {
-      return this.ListahanTypeofBeneficiaries.map((item) => ({
-        value: item.Type,
-        label: item.Type,
-      }));
-    },
-  },
-
-  watch: {
-    selectedBarangay(newBarangay) {
-      const selected = this.ListahanBarangay.find(
-        (item) => item.barangay == newBarangay
-      );
-      this.txtmunicipality = selected ? selected.city : "";
-    },
-  },
-
   created() {
-    const store = useBeneficiaries();
-    store.Beneficiaries_List().then((res) => {
-      this.ListahanBeneficiaries = store.ListBeneficiaries;
-      console.log("Beneficiaries List=", this.ListahanBeneficiaries);
+    const store = useUserAccount();
+    store.UserAccountList().then((res) => {
+      this.listofUsers = store.UserAccountListahan;
+      console.log("User List=", this.listofUsers);
     });
-
-    const store1 = useBeneficiaries();
-    store1.Beneficiaries_Barangay().then((res) => {
-      this.ListahanBarangay = store1.ListBeneficiaries_Barangay;
-      console.log("Barangay List=", this.ListahanBarangay);
-    });
-
-    const store2 = useLibraries();
-    store2.TypeBeneficiariesList().then((res) => {
-      this.ListahanTypeofBeneficiaries = store2.TypeBeneficiaries;
-      console.log(
-        "Type sdsd Benefeciaries List=",
-        this.ListahanTypeofBeneficiaries
-      );
-    });
-
-    /*  const store3 = useBeneficiaries();
-    let data = new FormData();
-    data.append("lastname", "ABARQUEZ");
-    data.append("firstname", "MA. FAITH ANTHONETTE");
-    data.append("middlename", "DACUYA");
-    data.append("suffix", "");
-    data.append("birthdate", "2006-08-23");
-
-    store3.ViewDetails_MemberInfo(data).then((res) => {
-      this.ListahanMemberInfo = store.Memberinfo;
-      console.log("ViewDetails_MemberInfo", this.ListahanMemberInfo);
-    }); */
   },
 
   mounted() {
@@ -876,31 +598,6 @@ export default defineComponent({
           position: "center",
           timeout: "2000",
         });
-
-        /*  columns,
-      ListahanBeneficiaries,
-
-      customSort (ListahanBeneficiaries, sortBy, descending) {
-        const data = [...ListahanBeneficiaries]
-
-        if (sortBy) {
-          data.sort((a, b) => {
-            const x = descending ? b : a
-            const y = descending ? a : b
-
-            if (sortBy === 'name') {
-              // string sort
-              return x[ sortBy ] > y[ sortBy ] ? 1 : x[ sortBy ] < y[ sortBy ] ? -1 : 0
-            }
-            else {
-              // numeric sort
-              return parseFloat(x[ sortBy ]) - parseFloat(y[ sortBy ])
-            }
-          })
-        }
-
-        return data
-      } */
       },
 
       showsuccessfullUpdated() {
@@ -926,148 +623,77 @@ export default defineComponent({
   },
 
   methods: {
-    async Release_Beneficiaries(row) {
-      console.log("RELEASE ROW", row.id);
-
-      const store = useBeneficiaries();
-      let data = new FormData();
-      data.append("id", row.id);
-
-      store.Release_Beneficiary(data).then((res) => {
-        const store = useBeneficiaries();
-        let data = new FormData();
-        data.append("lastname", this.txtlastname);
-        data.append("firstname", this.txtfirstname);
-        data.append("middlename", this.middlename);
-        data.append("suffix", this.suffix);
-        data.append("birthdate", this.birthdate);
-
-        store.ViewDetails_MemberInfo(data).then((res) => {
-          this.ListahanMemberInfo = store.Memberinfo;
-          console.log("ViewDetails_MemberInfo", store.Memberinfo);
-        });
-      });
-    },
-
-    async Click_ViewDetails(row) {
-      console.log("View Details", row);
-
-      this.txtlastname = row.Lastname;
-      this.txtfirstname = row.Firstname;
-      this.middlename = row.Middlename;
-      this.suffix = row.Suffix;
-      this.birthdate = row.Birthdate;
-
-      const store = useBeneficiaries();
-      let data = new FormData();
-      data.append("lastname", this.txtlastname);
-      data.append("firstname", this.txtfirstname);
-      data.append("middlename", this.middlename);
-      data.append("suffix", this.suffix);
-      data.append("birthdate", this.birthdate);
-
-      store.ViewDetails_MemberInfo(data).then((res) => {
-        this.ListahanMemberInfo = store.Memberinfo;
-        console.log("ViewDetails_MemberInfo", store.Memberinfo);
-      });
-      /*   this. = true; */
-      this.Dialog_View_Details = true;
-    },
-
-    async ViewDetails() {
-      const store = useBeneficiaries();
-      let data = new FormData();
-      data.append("lastname", this.txtlastname);
-      data.append("firstname", this.txtfirstname);
-      data.append("middlename", this.middlename);
-      data.append("suffix", this.suffix);
-      data.append("birthdate", this.birthdate);
-
-      store.ViewDetails_MemberInfo(data).then((res) => {
-        this.ListahanMemberInfo = store.Memberinfo;
-        console.log("ViewDetails_MemberInfo", this.ListahanMemberInfo);
-      });
-    },
-
-    async AddType(row) {
-      console.log("ADD TYPE ROW", row);
-      this.Dialog_View_Details = true;
-    },
-
     async deleteItem(row) {
       console.log("ROW DELETE", row.ID);
       this.txtID_Delete = row.ID;
       this.DialogDelete = true;
     },
 
-    async saveBeneficiaries() {
-      const store = useBeneficiaries();
+    async saveUserAccount() {
+      const store = useUserAccount();
       let data = new FormData();
       data.append("lastname", this.txtlname);
       data.append("firstname", this.txtfname);
-      data.append("middlename", this.txtmname);
+      data.append("middlename", this.txtlname);
       data.append("suffix", this.txtextensioname);
-      data.append("birthdate", this.txtbirthday);
-      data.append("barangay", this.selectedBarangay);
-      data.append("city", this.txtmunicipality);
+      data.append("type", this.txttype);
+      data.append("username", this.txtusername);
 
-      store.Beneficiaries_Save_EDIT_DELETE(data).then((res) => {
+      store.UserAccount_Save_EDIT_DELETE(data).then((res) => {
         this.showsuccessfullsave();
-        const store = useBeneficiaries();
-        store.Beneficiaries_List().then((res) => {
-          this.ListahanBeneficiaries = store.ListBeneficiaries;
-          console.log("Beneficiaries List=", this.ListahanBeneficiaries);
+        const store = useUserAccount();
+        store.UserAccountList().then((res) => {
+          this.listofUsers = store.UserAccountListahan;
+          console.log("User List=", this.listofUsers);
         });
 
         this.txtlname = "";
         this.txtfname = "";
         this.txtmname = "";
         this.txtextensioname = "";
-        this.txtbirthday = "";
-        this.selectedBarangay = "";
-        this.txtmunicipality = "";
+        this.txttype = "";
+        this.txtusername = "";
 
         // this.CreationDialog = false;
       });
     },
 
     async Delete_Beneficiaries() {
-      const store = useBeneficiaries();
+      const store = useUserAccount();
       let data = new FormData();
       data.append("id", this.txtID_Delete);
       data.append("type", "delete");
 
-      store.Beneficiaries_Save_EDIT_DELETE(data).then((res) => {
+      store.UserAccount_Save_EDIT_DELETE(data).then((res) => {
         this.showsuccessfullyDeleted();
-        const store = useBeneficiaries();
-        store.Beneficiaries_List().then((res) => {
-          this.ListahanBeneficiaries = store.ListBeneficiaries;
-          console.log("Beneficiaries List=", this.ListahanBeneficiaries);
+        const store = useUserAccount();
+        store.UserAccountList().then((res) => {
+          this.listofUsers = store.UserAccountListahan;
+          console.log("User List=", this.listofUsers);
         });
 
         // this.CreationDialog = false;
       });
     },
 
-    async Update_Beneficiaries() {
-      const store = useBeneficiaries();
+    async Update_UserAccount() {
+      const store = useUserAccount();
       let data = new FormData();
       data.append("id", this.txtID_Edit);
       data.append("lastname", this.txtlname_edit);
       data.append("firstname", this.txtfname_edit);
       data.append("middlename", this.txtmname_edit);
       data.append("suffix", this.txtextensionname_edit);
-      data.append("birthdate", this.txtbirthday_edit);
-      data.append("barangay", this.txtbarangay_edit);
-      data.append("city", this.txtmunicipality_edit);
-      data.append("type", "edit");
+      data.append("type", this.txttype_edit);
+      data.append("username", this.txtusername_edit);
+      data.append("action", "edit");
 
-      store.Beneficiaries_Save_EDIT_DELETE(data).then((res) => {
+      store.UserAccount_Save_EDIT_DELETE(data).then((res) => {
         this.showsuccessfullUpdated();
-        const store = useBeneficiaries();
-        store.Beneficiaries_List().then((res) => {
-          this.ListahanBeneficiaries = store.ListBeneficiaries;
-          console.log("Beneficiaries List=", this.ListahanBeneficiaries);
+        const store = useUserAccount();
+        store.UserAccountList().then((res) => {
+          this.listofUsers = store.UserAccountListahan;
+          console.log("User List=", this.listofUsers);
         });
 
         // this.CreationDialog = false;
@@ -1107,9 +733,8 @@ export default defineComponent({
       this.txtmname_edit = row.Middlename;
       this.txtlname_edit = row.Lastname;
       this.txtextensionname_edit = row.Suffix;
-      this.txtbirthday_edit = row.Birthdate;
-      this.txtbarangay_edit = row.Barangay;
-      this.txtmunicipality_edit = row.Province;
+      this.txtusername_edit = row.Username;
+      this.txttype_edit = row.type;
     },
 
     openFileInput() {

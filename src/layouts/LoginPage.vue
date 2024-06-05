@@ -130,6 +130,17 @@ export default defineComponent({
           timeout: "1000",
         });
       },
+
+      showNotifsixdigits() {
+        $q.notify({
+          icon: "error",
+          color: "negative",
+          message: "User ID Must be at Least 6 Digits",
+          position: "center",
+          timeout: "2000",
+        });
+      },
+
       showLoading() {
         $q.loading.show({
           message: "Please Wait",
@@ -157,26 +168,30 @@ export default defineComponent({
       return (val && val.length > 0) || "Field must be filled in";
     },
     submit() {
-      this.$router.push("/main");
       this.$refs.username.validate();
       this.$refs.password.validate();
       if (!this.$refs.username.hasError && !this.$refs.password.hasError) {
-        // this.showLoading();
+        this.showLoading();
         const store = useLoginStore();
         const data = new FormData();
         data.append("username", this.username);
         data.append("password", this.password);
-        console.log("username ni", this.username);
 
-        store.userlogin(this.userlogin).then((res) => {
-          if (res.data.auth == "passed") {
-            // console.log("res.data", res.data.auth);
-            this.UserCredentials = res.data.auth;
-            console.log("Credentials =>", this.UserCredentials);
-            this.$router.push("/main");
-          } else {
+        store.userlogin(data).then((e) => {
+          this.hideLoading();
+          if (e == 0 || e == 2) {
             console.log("failed!");
-            // this.showNotif();
+
+            //   $q.notify({
+            //   icon: 'done',
+
+            //   color: 'positive',
+            //   message: 'Авторизация'
+            // })
+            this.showNotif();
+          } else {
+            // console.log("Success!")
+            this.$router.push({ path: "/main" });
           }
         });
       }

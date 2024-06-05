@@ -92,7 +92,7 @@
                   'default-color': selectedSection !== 'beneficiary',
                 }"
                 text-color="white"
-                icon="dashboard"
+                icon="group"
               >
               </q-avatar>
             </q-item-section>
@@ -101,6 +101,78 @@
               <q-item-label> <b>Beneficiary</b> </q-item-label>
             </q-item-section>
           </q-item>
+
+          <q-item
+            clickable
+            v-ripple
+            @click="handleItemClick_libraries"
+            :class="{ 'active-item': selectedSection === 'libraries' }"
+          >
+            <q-item-section avatar>
+              <q-avatar
+                rounded
+                :class="{
+                  blendingcolor: selectedSection === 'libraries',
+                  'default-color': selectedSection !== 'libraries',
+                }"
+                text-color="white"
+                icon="library_books"
+              >
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section class="responsive-text">
+              <q-item-label> <b>Libraries</b> </q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item
+            clickable
+            v-ripple
+            @click="handleItemClick_useraccount"
+            :class="{ 'active-item': selectedSection === 'useraccount' }"
+          >
+            <q-item-section avatar>
+              <q-avatar
+                rounded
+                :class="{
+                  blendingcolor: selectedSection === 'useraccount',
+                  'default-color': selectedSection !== 'useraccount',
+                }"
+                text-color="white"
+                icon="manage_accounts"
+              >
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section class="responsive-text">
+              <q-item-label> <b>User Account</b> </q-item-label>
+            </q-item-section>
+          </q-item>
+          <!--
+          <q-item
+            clickable
+            v-ripple
+            @click="handleItemClick_TODOS"
+            :class="{ 'active-item': selectedSection === 'ToDoos_Two' }"
+          >
+            <q-item-section avatar>
+              <q-avatar
+                rounded
+                :class="{
+                  blendingcolor: selectedSection === 'ToDoos_Two',
+                  'default-color': selectedSection !== 'ToDoos_Two',
+                }"
+                text-color="white"
+                icon="manage_accounts"
+              >
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section class="responsive-text">
+              <q-item-label> <b>TO DOS</b> </q-item-label>
+            </q-item-section>
+          </q-item> -->
 
           <!--     <q-expansion-item group="somegroup" v-model="settings">
             <template v-slot:header>
@@ -152,6 +224,12 @@
     <q-page-container v-if="showbeneficiary">
       <Beneficiary />
     </q-page-container>
+    <q-page-container v-if="showlibraries">
+      <Libraries />
+    </q-page-container>
+    <q-page-container v-if="ShowUserAccountView">
+      <UserAccountView />
+    </q-page-container>
     <q-page-container v-if="showTodosTwo">
       <ToDoos_Two />
     </q-page-container>
@@ -164,6 +242,8 @@ import { defineComponent, ref } from "vue";
 import Beneficiary from "components/Beneficiary.vue";
 import ToDoos_Two from "components/ToDoos_Two.vue";
 import DashboardView from "src/components/DashboardView.vue";
+import Libraries from "src/components/Libraries.vue";
+import UserAccountView from "src/components/UserAccount.vue";
 
 const linksList = [
   {
@@ -189,6 +269,8 @@ export default defineComponent({
     Beneficiary,
     ToDoos_Two,
     DashboardView,
+    Libraries,
+    UserAccountView,
   },
 
   setup() {
@@ -207,6 +289,8 @@ export default defineComponent({
       selectedSection: "dashboard",
       DashboardView: true,
       showbeneficiary: false,
+      ShowUserAccountView: false,
+      showlibraries: false,
       showTodosTwo: false,
       management: false,
       settings: false,
@@ -226,6 +310,18 @@ export default defineComponent({
       this.toggleSection("beneficiary");
     },
 
+    handleItemClick_libraries() {
+      this.toggleSection("libraries");
+    },
+
+    handleItemClick_useraccount() {
+      this.toggleSection("useraccount");
+    },
+
+    handleItemClick_TODOS() {
+      this.toggleSection("ToDoos_Two");
+    },
+
     toggleSubMenu() {
       this.submenuOpen = !this.submenuOpen;
     },
@@ -234,9 +330,11 @@ export default defineComponent({
       this.submenuOpen = false;
     },
     toggleSection(section) {
+      this.showlibraries = section === "libraries";
       this.showbeneficiary = section === "beneficiary";
       this.showTodosTwo = section === "ToDoos_Two";
       this.DashboardView = section === "dashboard";
+      this.ShowUserAccountView = section == "useraccount";
 
       if (section === "dashboard") {
         this.management = false; // Close management expansion item
